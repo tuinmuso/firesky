@@ -335,7 +335,7 @@ const T={
 };
 
 Object.assign(T.en,{toWa:"See the WhatsApp message again",
- simTitle:"How your buyers get the catalogue",simText:"They get a normal WhatsApp message, just like the PDF. One tap opens the catalogue. Nothing to download, no password.",simTap:"Tap the message to open it",
+ simTitle:"How your buyers get the catalogue",simText:"They get a normal WhatsApp message, just like they get the PDF today. One tap opens the catalogue, and everything lives there. Nothing to download, no password.",simTap:"Tap the message to open it",
  waMsg:"Good morning! The Fire Sky & Friends 2027 catalogue is ready. Tap below to see every lot with videos, horn measurements and pedigrees. Nothing to download.",
  lpTitle:"Fire Sky & Friends Prestige Production Auction",lpDesc:"Tap to open the sale catalogue. 30 January 2027, 11:00.",lpSite:"Fire Sky Ankole sale catalogue",
  waPdf:"The PDF catalogue is here too, if you prefer.",pdfName:"Fire Sky & Friends 2027 Lot 010.pdf",pdfMeta:"5 pages · PDF",typeMsg:"Message",
@@ -349,7 +349,7 @@ Object.assign(T.en,{toWa:"See the WhatsApp message again",
  iI1:"Tap the Share button at the bottom of the screen",iI2:"Scroll down and tap \"Add to Home Screen\"",iI3:"Tap \"Add\" at the top. The Fire Sky icon is on your screen",
  iNo:"Rather not? No problem. Just tap the WhatsApp link again whenever you want to look.",iDone:"Done",yourScreen:"Your phone's screen"});
 Object.assign(T.af,{toWa:"Kyk weer na die WhatsApp-boodskap",
- simTitle:"Hoe julle kopers die katalogus kry",simText:"Hulle kry 'n gewone WhatsApp-boodskap, net soos die PDF. Een tik maak die katalogus oop. Niks om af te laai nie, geen wagwoord nie.",simTap:"Tik op die boodskap om dit oop te maak",
+ simTitle:"Hoe julle kopers die katalogus kry",simText:"Hulle kry 'n gewone WhatsApp-boodskap, net soos hulle vandag die PDF kry. Een tik maak die katalogus oop, en alles is daar. Niks om af te laai nie, geen wagwoord nie.",simTap:"Tik op die boodskap om dit oop te maak",
  waMsg:"Goeie môre! Die Fire Sky & Friends 2027 katalogus is gereed. Tik hieronder om elke lot met video's, horingmates en stambome te sien. Niks om af te laai nie.",
  lpTitle:"Fire Sky & Friends Prestige Produksieveiling",lpDesc:"Tik om die veilingkatalogus oop te maak. 30 Januarie 2027, 11:00.",lpSite:"Fire Sky Ankole veilingkatalogus",
  waPdf:"Die PDF-katalogus is ook hier as jy dit verkies.",pdfName:"Fire Sky & Friends 2027 Lot 010.pdf",pdfMeta:"5 bladsye · PDF",typeMsg:"Boodskap",
@@ -424,7 +424,7 @@ function catalogue(){const d=daysLeft(),f=S.filter;
   const chips=["all","females","packages","mine"].map(k=>`<button class="chip" data-filter="${k}" aria-pressed="${f===k}">${esc(t(k))}</button>`).join("");
   return `<section class="cover"><img class="bg" src="${IMG.maxiHero}" alt=""><img class="toplogo" src="${IMG.logoD}" alt="Fire Sky Ankole"><div class="in">
     <div class="eyebrow">${esc(t("eyebrow"))}</div><h1>${esc(t("auction"))}</h1><p>${esc(t("where"))}</p>
-    <div class="count"><b class="num">${d}</b><span>${esc(d?t("days"):t("today"))}</span></div><a class="pdfbtn" href="${PDF_URL}" target="_blank" rel="noopener"><svg viewBox="0 0 24 24"><path d="M12 3v12M7 10l5 5 5-5M5 21h14"/></svg>${esc(t("pdfDl"))}</a></div></section>
+    <div class="count"><b class="num">${d}</b><span>${esc(d?t("days"):t("today"))}</span></div></div></section>
    <div class="chips" role="group">${chips}</div>
    ${lots.length?`<div class="grid">${lots.map(card).join("")}</div>`:`<div class="empty">${esc(t("listEmpty"))}</div>`}`}
 function myList(){const lots=LOTS.filter(l=>S.fav.includes(l.lot));
@@ -479,7 +479,6 @@ function waView(){
    <div class="wa-body"><span class="wa-day">${S.lang==="af"?"Vandag":"Today"}</span>
     <div class="bub"><button class="lp tapme" data-enter><img src="${IMG.maxiHero}" alt=""><span><strong>${esc(t("lpTitle"))}</strong><em>${esc(t("lpDesc"))}</em><small>${esc(t("lpSite"))}</small></span></button>
      <p>${esc(t("waMsg"))}</p><p><a class="wl" href="#catalogue" data-enter>tuinmuso.github.io/firesky</a></p><span class="tm">07:30</span></div>
-    <div class="bub"><a class="doc" href="${PDF_URL}" target="_blank" rel="noopener"><span class="ic">PDF</span><span><strong>${esc(t("pdfName"))}</strong><small>${esc(t("pdfMeta"))}</small></span></a><p>${esc(t("waPdf"))}</p><span class="tm">07:30</span></div>
    </div><div class="wa-in"><span>${esc(t("typeMsg"))}</span><i></i></div></div>`}
 function welcome(){
   return `<div class="welcome" style="display:flex;flex-direction:column;gap:16px;padding-bottom:8px">
